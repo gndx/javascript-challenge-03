@@ -1,0 +1,23 @@
+{
+  "name": "javascript-challenge-03",
+  "version": "1.0.0",
+  "description": "Reto JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server --open=public --entry-file=index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gndx/javascript-challenge-03.git"
+  },
+  "keywords": [],
+  "author": "Oscar Barajas <oscar@platzi.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gndx/javascript-challenge-03/issues"
+  },
+  "homepage": "https://github.com/gndx/javascript-challenge-03#readme",
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}
