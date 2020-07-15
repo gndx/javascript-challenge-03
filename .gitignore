@@ -1,3 +1,5 @@
+#IDE configs
+.idea/
 # Logs
 logs
 *.log
