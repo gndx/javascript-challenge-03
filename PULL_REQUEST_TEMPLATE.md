@@ -2,11 +2,11 @@
 
 Solución al reto 03 de Escuela de JavaScript
 
-Nombre:
-Usuario Platzi:
+Nombre: Axel David Espinosa Meneses
+Usuario Platzi: AxelEspinosa45
 
 ## Reto:
-  - [ ] Primer problema
-  - [ ] Segundo problema
-  - [ ] Tercer problema
-  - [ ] Cuarto Problema (Opcional)
+  - [x] Primer problema
+  - [x] Segundo problema
+  - [x] Tercer problema
+  - [x] Cuarto Problema (Opcional)
