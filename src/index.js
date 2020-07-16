@@ -7,14 +7,15 @@ const getData = async (api) => {
         const request = await fetch(api);
         const responseJson = await request.json();
         const characters = await responseJson.results;
-
+        //Save the next url to hit in localstorage
+        saveNextUrl(responseJson.info.next);
         let renderCharacters = await characters.map(character => {
             return `
               <article class="Card">
                 <img src="${character.image}" />
                 <h2>${character.name}<span>${character.species}</span></h2>
               </article>
-      `;}).join('');
+        `;}).join('');
 
         let newItem = document.createElement('section');
         newItem.classList.add('Items');
@@ -26,9 +27,12 @@ const getData = async (api) => {
     }
 }
 
-const loadData = () => {
-    getData(API);
+const saveNextUrl = (url) => {
+    localStorage.setItem('next_fetch', url);
 }
+
+
+const loadData = async () => await getData(API);
 
 const intersectionObserver = new IntersectionObserver(entries => {
     if (entries[0].isIntersecting) {
