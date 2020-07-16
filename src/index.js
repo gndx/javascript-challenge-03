@@ -40,7 +40,14 @@ const getNextUrl = () => {
 }
 
 
-const loadData = async (url) => await getData(url);
+const loadData = async (url) => {
+    if (url === "null") {
+       alert('There are not more characters left');
+       intersectionObserver.unobserve($observe);
+    } else {
+        await getData(url);
+    }
+}
 
 const handlerObserver = async (entries) => {
     if(entries[0].isIntersecting)
