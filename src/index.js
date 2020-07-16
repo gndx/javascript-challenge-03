@@ -52,3 +52,11 @@ const intersectionObserver = new IntersectionObserver(handlerObserver, {
 });
 
 intersectionObserver.observe($observe);
+
+const handlerContentLoaded = () => {
+    if (localStorage.getItem('next_fetch') !== null) {
+        localStorage.removeItem('next_fetch');
+    }
+}
+
+window.addEventListener('DOMContentLoaded', handlerContentLoaded);
