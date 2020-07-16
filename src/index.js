@@ -31,14 +31,23 @@ const saveNextUrl = (url) => {
     localStorage.setItem('next_fetch', url);
 }
 
-
-const loadData = async () => await getData(API);
-
-const intersectionObserver = new IntersectionObserver(entries => {
-    if (entries[0].isIntersecting) {
-        loadData();
+const getNextUrl = () => {
+    if (localStorage.getItem('next_fetch') !== null) {
+        return localStorage.getItem('next_fetch');
+    } else {
+        return API;
     }
-}, {
+}
+
+
+const loadData = async (url) => await getData(url);
+
+const handlerObserver = async (entries) => {
+    if(entries[0].isIntersecting)
+        await loadData(getNextUrl());
+}
+
+const intersectionObserver = new IntersectionObserver(handlerObserver, {
     rootMargin: '0px 0px 100% 0px',
 });
 
