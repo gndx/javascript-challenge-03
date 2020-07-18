@@ -8,7 +8,6 @@ const getData = api => {
     .then(response => {
       const characters = response.results;
       const nextURL = response.info.next;
-      const prevURL = response.info.prev;
       // save next url 
       saveUrlLocalStorage(nextURL);
       let output = characters.map(character => {
@@ -27,13 +26,13 @@ const getData = api => {
     .catch(error => console.log(error));
 }
 
-const loadData =async () => {
-   await getData(API);
+const loadData = async (url) => {
+  await getData(url);
 }
 
 const intersectionObserver = new IntersectionObserver(entries => {
   if (entries[0].isIntersecting) {
-    loadData();
+    loadData(getDataLocalStorage());
   }
 }, {
   rootMargin: '0px 0px 100% 0px',
@@ -41,16 +40,25 @@ const intersectionObserver = new IntersectionObserver(entries => {
 
 intersectionObserver.observe($observe);
 
-const saveUrlLocalStorage=(url)=>{
-  localStorage.setItem("next_fetch",url)
+const saveUrlLocalStorage = (url) => {
+  localStorage.setItem("next_fetch", url)
 }
 
-function getDataLocalStorage(){
+function getDataLocalStorage() {
 
-  let urlSave = localStorage.getItem('next_fetch');
-  if (urlSave){
-    return localStorage.getItem('next_fetch');
-  }else{
+  const urlSave = localStorage.getItem('next_fetch');
+
+  if (urlSave) {
+    return urlSave;
+  } else {
     return API;
   }
 }
+
+const removeLocalStorage = () => {
+  if (localStorage.getItem('next_fetch')) {
+    localStorage.removeItem('next_fetch');
+  }
+}
+
+window.addEventListener('DOMContentLoaded', removeLocalStorage);
