@@ -27,7 +27,12 @@ const getData = api => {
 }
 
 const loadData = async (url) => {
-  await getData(url);
+  if (url === "null") {
+    alert('Ya no hay personajes...');
+    intersectionObserver.unobserve($observe);
+  } else {
+    await getData(url);
+  }
 }
 
 const intersectionObserver = new IntersectionObserver(entries => {
