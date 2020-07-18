@@ -8,6 +8,7 @@ const getData = api => {
     .then(response => {
       const characters = response.results;
       const nextURL = response.info.next;
+      const prevURL = response.info.prev;
       // save next url 
       saveUrlLocalStorage(nextURL);
       let output = characters.map(character => {
@@ -26,8 +27,8 @@ const getData = api => {
     .catch(error => console.log(error));
 }
 
-const loadData = () => {
-  getData(API);
+const loadData =async () => {
+   await getData(API);
 }
 
 const intersectionObserver = new IntersectionObserver(entries => {
@@ -44,3 +45,12 @@ const saveUrlLocalStorage=(url)=>{
   localStorage.setItem("next_fetch",url)
 }
 
+function getDataLocalStorage(){
+
+  let urlSave = localStorage.getItem('next_fetch');
+  if (urlSave){
+    return localStorage.getItem('next_fetch');
+  }else{
+    return API;
+  }
+}
