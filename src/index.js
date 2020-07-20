@@ -7,6 +7,8 @@ const getData = api => {
     .then(response => response.json())
     .then(response => {
       const characters = response.results;
+      saveNewurl(response.info.next);
+      console.log(response.info.next);
       let output = characters.map(character => {
         return `
       <article class="Card">
@@ -23,8 +25,26 @@ const getData = api => {
     .catch(error => console.log(error));
 }
 
-const loadData = () => {
-  getData(API);
+const saveNewurl= (newAPIurl)=>{
+  window.localStorage.setItem('next_fetch', newAPIurl);
+}
+
+const loadData = async() => {
+  try{ 
+    if(window.localStorage.getItem('next_fetch')!==null){
+      const url= window.localStorage.getItem('next_fetch');
+      if(url!=='null'){
+        getData(url);
+      }else{
+        intersectionObserver.unobserve($observe);
+        swal({ text: "ya no hay más personajes ...",});
+      }
+    }else{
+      getData(API);
+    }
+  }catch(error){
+    console.error(error);
+  }
 }
 
 const intersectionObserver = new IntersectionObserver(entries => {
@@ -36,3 +56,4 @@ const intersectionObserver = new IntersectionObserver(entries => {
 });
 
 intersectionObserver.observe($observe);
+window.localStorage.removeItem('next_fetch'); 
