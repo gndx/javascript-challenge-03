@@ -7,6 +7,8 @@ const getData = api => {
     .then(response => response.json())
     .then(response => {
       const characters = response.results;
+      saveNewurl(response.info.next);
+      console.log(response.info.next);
       let output = characters.map(character => {
         return `
       <article class="Card">
@@ -23,8 +25,17 @@ const getData = api => {
     .catch(error => console.log(error));
 }
 
-const loadData = () => {
-  getData(API);
+const saveNewurl= (newAPIurl)=>{
+  window.localStorage.setItem('next_fetch', newAPIurl);
+}
+
+const loadData =() => {
+  if(window.localStorage.getItem('next_fetch')!==null){
+    const url= window.localStorage.getItem('next_fetch');
+    getData(url);
+  }else{
+    getData(API);
+  }
 }
 
 const intersectionObserver = new IntersectionObserver(entries => {
