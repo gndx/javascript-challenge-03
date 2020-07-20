@@ -51,3 +51,4 @@ const intersectionObserver = new IntersectionObserver(entries => {
 });
 
 intersectionObserver.observe($observe);
+window.localStorage.removeItem('next_fetch'); 
