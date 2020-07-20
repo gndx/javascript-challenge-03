@@ -29,12 +29,16 @@ const saveNewurl= (newAPIurl)=>{
   window.localStorage.setItem('next_fetch', newAPIurl);
 }
 
-const loadData =() => {
-  if(window.localStorage.getItem('next_fetch')!==null){
-    const url= window.localStorage.getItem('next_fetch');
-    getData(url);
-  }else{
-    getData(API);
+const loadData = async() => {
+  try{ 
+    if(window.localStorage.getItem('next_fetch')!==null){
+      const url= window.localStorage.getItem('next_fetch');
+        getData(url);
+    }else{
+      getData(API);
+    }
+  }catch(error){
+    console.error(error);
   }
 }
 
