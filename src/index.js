@@ -33,7 +33,12 @@ const loadData = async() => {
   try{ 
     if(window.localStorage.getItem('next_fetch')!==null){
       const url= window.localStorage.getItem('next_fetch');
+      if(url!=='null'){
         getData(url);
+      }else{
+        intersectionObserver.unobserve($observe);
+        swal({ text: "ya no hay más personajes ...",});
+      }
     }else{
       getData(API);
     }
