@@ -4,7 +4,7 @@
   "description": "Reto JavaScript",
   "main": "index.js",
   "scripts": {
-    "start": "live-server --open=public --entry-file=index.html"
+    "start": "live-server"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,6 @@
   "homepage": "https://github.com/gndx/javascript-challenge-03#readme",
   "devDependencies": {
     "live-server": "^1.2.1"
-  }
+  },
+  "dependencies": {}
 }
