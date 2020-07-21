@@ -2,11 +2,11 @@
 
 Solución al reto 03 de Escuela de JavaScript
 
-Nombre:
-Usuario Platzi:
+Nombre:Jhoan Canchila
+Usuario Platzi:jcanchila
 
 ## Reto:
-  - [ ] Primer problema
-  - [ ] Segundo problema
-  - [ ] Tercer problema
-  - [ ] Cuarto Problema (Opcional)
+  - [ok] Primer problema
+  - [ok] Segundo problema
+  - [ok] Tercer problema
+  - [ok] Cuarto Problema (Opcional)
