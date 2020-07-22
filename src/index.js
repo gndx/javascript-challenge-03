@@ -54,5 +54,5 @@ const intersectionObserver = new IntersectionObserver(entries => {
   rootMargin: '0px 0px 100% 0px',
 });
 
-intersectionObserver.observe($observe);
+intersectionObserver.observe($observe)
 window.localStorage.removeItem('next_fetch');
