@@ -1,7 +1,7 @@
 {
   "name": "javascript-challenge-03",
   "version": "1.0.0",
-  "description": "Reto JavaScript",
+  "description": "Reto 3 - Escuela JavaScript",
   "main": "index.js",
   "scripts": {
     "start": "live-server --open=public --entry-file=index.html"
@@ -11,7 +11,7 @@
     "url": "git+https://github.com/gndx/javascript-challenge-03.git"
   },
   "keywords": [],
-  "author": "Oscar Barajas <oscar@platzi.com>",
+  "author": "Felipe Morales <tadeus87@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/gndx/javascript-challenge-03/issues"
