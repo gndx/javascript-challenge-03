@@ -26,7 +26,12 @@ const getData = async (api) => {
     newItem.classList.add("Items");
     newItem.innerHTML = output;
     $app.appendChild(newItem);
-    localStorage.setItem(NEXT_KEY, response.info.next);
+    if(response.info.next)
+      localStorage.setItem(NEXT_KEY, response.info.next);
+    else {
+      alert('Ya no hay más personajes');
+      intersectionObserver.unobserve($observe);
+    }
   } catch (error) {
     console.log(error);
   }
