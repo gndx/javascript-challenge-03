@@ -41,3 +41,12 @@ intersectionObserver.observe($observe);
 const saveUrlLocalStorage = (url) => {
   localStorage.setItem('next_fetch', url)
 }
+
+function getDataLocalStorage() {
+  let urlSave = localStorage.getItem('next_fetch')
+  if (urlSave) {
+    return localStorage.getItem('next_fetch')
+  } else {
+    return API
+  }
+}
