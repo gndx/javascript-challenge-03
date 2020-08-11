@@ -66,7 +66,7 @@ const intersectionObserver = new IntersectionObserver(entries => {
          
     }else{
 
-      //SEGUNDO PROBLEMA: Obtenemos la información desde la llave 'next_fetch' de nuestro localStorage
+      //SEGUNDO PROBLEMA: Obtenemos la información desde la llave 'next_fetch' de nuestro localStorage la funcion loadData() se actualiza a Async/Await
       loadData(localStorage.getItem('next_fetch'))
 
       antPage = localStorage.getItem('next_fetch').substr(-2)
