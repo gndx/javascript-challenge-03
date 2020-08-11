@@ -2,11 +2,11 @@
 
 Solución al reto 03 de Escuela de JavaScript
 
-Nombre:
-Usuario Platzi:
+Nombre: Viviana Soto E
+Usuario Platzi: Vivi Soto
 
 ## Reto:
-  - [ ] Primer problema
-  - [ ] Segundo problema
+  - [x] Primer problema
+  - [x] Segundo problema
   - [ ] Tercer problema
   - [ ] Cuarto Problema (Opcional)
