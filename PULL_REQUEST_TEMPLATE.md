@@ -7,6 +7,6 @@ Usuario Platzi: @alfonsoneiljimenez
 
 ## Reto:
   - [ X ] Primer problema
-  - [ ] Segundo problema
+  - [ X ] Segundo problema
   - [ ] Tercer problema
   - [ ] Cuarto Problema (Opcional)
