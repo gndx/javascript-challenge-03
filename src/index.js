@@ -25,28 +25,37 @@ const getData = api => {
     .catch(error => console.log(error));
 }
 
-const loadData =  async() => {
+const loadData =  async(API) => {
   await getData(API);
 }
 
 const intersectionObserver = new IntersectionObserver(entries => {
   if (entries[0].isIntersecting) {
-    loadData();
+    loadData(getDataLocalStorage());
   }
 }, {
   rootMargin: '0px 0px 100% 0px',
 });
 
 intersectionObserver.observe($observe);
+
 const saveUrlLocalStorage = (url) => {
   localStorage.setItem('next_fetch', url)
 }
 
 function getDataLocalStorage() {
-  let urlSave = localStorage.getItem('next_fetch')
-  if (urlSave) {
-    return localStorage.getItem('next_fetch')
+ const urlSave = localStorage.getItem('next_fetch');
+  if(urlSave) {
+    return urlSave;
   } else {
-    return API
+    return API;
   }
 }
+
+ const removeLocalStorage = () => {
+   if(localStorage.getItem('next_fetch')) {
+     localStorage.removeItem('next_fetch');
+   }
+ }
+ 
+ window.addEventListener('DOMContentLoaded' , removeLocalStorage);
