@@ -28,8 +28,15 @@ const saveNextURLRequest = function(nextURLAPI){
 	window.localStorage.setItem('next_fetch', nextURLAPI);
 }
 
-const loadData = () => {
-  getData(API);
+const loadData = async() => {
+  let newURL = API;	
+  window.localStorage.getItem('next_fetch')=== null ? 
+  (
+       await getData(API)
+  ):(
+       newURL = window.localStorage.getItem('next_fetch'),
+	   getData(newURL)
+  );	
 }
 
 const intersectionObserver = new IntersectionObserver(entries => {
