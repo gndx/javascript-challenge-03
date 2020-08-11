@@ -7,6 +7,8 @@ const getData = api => {
     .then(response => response.json())
     .then(response => {
       const characters = response.results;
+      const nextUrl = response.info.next;
+      saveUrlLocalStorage(nextUrl);
       let output = characters.map(character => {
         return `
       <article class="Card">
@@ -36,3 +38,6 @@ const intersectionObserver = new IntersectionObserver(entries => {
 });
 
 intersectionObserver.observe($observe);
+const saveUrlLocalStorage = (url) => {
+  localStorage.setItem('next_fetch', url)
+}
