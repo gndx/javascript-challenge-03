@@ -2,11 +2,11 @@
 
 Solución al reto 03 de Escuela de JavaScript
 
-Nombre:
-Usuario Platzi:
+Nombre: Alfonso Neil Jiménez Casallas
+Usuario Platzi: @alfonsoneiljimenez
 
 ## Reto:
-  - [ ] Primer problema
-  - [ ] Segundo problema
-  - [ ] Tercer problema
-  - [ ] Cuarto Problema (Opcional)
+  - [ X ] Primer problema
+  - [ X ] Segundo problema
+  - [ X ] Tercer problema
+  - [ X ] Cuarto Problema (Opcional)
