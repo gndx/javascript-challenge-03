@@ -28,15 +28,25 @@ const saveNextURLRequest = function(nextURLAPI){
 	window.localStorage.setItem('next_fetch', nextURLAPI);
 }
 
+const removeIntersectionObserver = function(url){
+	if(url.includes('null')){
+		window.alert("Ya no hay personajes...");
+	    intersectionObserver.unobserve($observe);
+	}
+}
+
 const loadData = async() => {
   let newURL = API;	
   window.localStorage.getItem('next_fetch')=== null ? 
   (
-       await getData(API)
+       await getData(API),
+	   removeIntersectionObserver(API)
   ):(
        newURL = window.localStorage.getItem('next_fetch'),
-	   getData(newURL)
-  );	
+	   await getData(newURL),
+	   removeIntersectionObserver(newURL)
+  );
+  
 }
 
 const intersectionObserver = new IntersectionObserver(entries => {

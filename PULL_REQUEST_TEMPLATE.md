@@ -9,4 +9,4 @@ Usuario Platzi: @alfonsoneiljimenez
   - [ X ] Primer problema
   - [ X ] Segundo problema
   - [ X ] Tercer problema
-  - [ ] Cuarto Problema (Opcional)
+  - [ X ] Cuarto Problema (Opcional)
