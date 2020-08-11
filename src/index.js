@@ -25,8 +25,8 @@ const getData = api => {
     .catch(error => console.log(error));
 }
 
-const loadData = () => {
-  getData(API);
+const loadData =  async() => {
+  await getData(API);
 }
 
 const intersectionObserver = new IntersectionObserver(entries => {
