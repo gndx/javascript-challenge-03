@@ -2,8 +2,8 @@
 
 Solución al reto 03 de Escuela de JavaScript
 
-Nombre:
-Usuario Platzi:
+Nombre: Alejandro Cantillo
+Usuario Platzi: alejocantillo95
 
 ## Reto:
   - [ ] Primer problema
