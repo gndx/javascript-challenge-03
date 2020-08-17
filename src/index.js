@@ -25,12 +25,12 @@ const getData = api => {
     .catch(error => console.log(error));
 }
 
-const loadData = async (url) => {
+const loadData = (url) => {
   if (url === "null") {
     alert ('Ya no quedan personajes');
     intersectionObserver.unobserve($observe);
   } else {
-    await getData(url);
+    getData(url);
   }
 }
 
@@ -45,10 +45,11 @@ const intersectionObserver = new IntersectionObserver(entries => {
 intersectionObserver.observe($observe);
 
 const saveUrlLocalStorage = (url) => {
-  localStorage.setItem("next_fetch", url)
+  localStorage.setItem('next_fetch', url)
 }
 
-function getDataLocalStorage () {
+function getDataLocalStorage() {
+
   const urlSave = localStorage.getItem('next_fetch');
 
   if (urlSave) {
