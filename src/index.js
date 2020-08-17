@@ -7,6 +7,8 @@ const getData = api => {
     .then(response => response.json())
     .then(response => {
       const characters = response.results;
+      const nextURL = response.info.next;
+      saveUrlLocalStorage(nextURL);
       let output = characters.map(character => {
         return `
       <article class="Card">
@@ -23,16 +25,43 @@ const getData = api => {
     .catch(error => console.log(error));
 }
 
-const loadData = () => {
-  getData(API);
+const loadData = async (url) => {
+  if (url === "null") {
+    alert ('Ya no quedan personajes');
+    intersectionObserver.unobserve($observe);
+  } else {
+    await getData(url);
+  }
 }
 
 const intersectionObserver = new IntersectionObserver(entries => {
   if (entries[0].isIntersecting) {
-    loadData();
+    loadData(getDataLocalStorage());
   }
 }, {
   rootMargin: '0px 0px 100% 0px',
 });
 
 intersectionObserver.observe($observe);
+
+const saveUrlLocalStorage = (url) => {
+  localStorage.setItem("next_fetch", url)
+}
+
+function getDataLocalStorage () {
+  const urlSave = localStorage.getItem('next_fetch');
+
+  if (urlSave) {
+    return urlSave;
+  } else {
+    return API;
+  }
+}
+
+const removeLocalStorage = () => {
+  if (localStorage.getItem('next_fetch')) {
+    localStorage.removeItem('next_fetch');
+  }
+}
+
+window.addEventListener('DOMContentLoaded', removeLocalStorage);
