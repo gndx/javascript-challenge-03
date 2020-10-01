@@ -6,6 +6,7 @@ const getData = api => {
   fetch(api)
     .then(response => response.json())
     .then(response => {
+        saveNextURLRequest(response.info.next);
       const characters = response.results;
       let output = characters.map(character => {
         return `
@@ -23,7 +24,11 @@ const getData = api => {
     .catch(error => console.log(error));
 }
 
-const loadData = () => {
+const saveNextURLRequest = function(nextURLAPI){
+      window.localStorage.setItem('next_fetch', nextURLAPI);
+}
+
+const loasData = () => {
   getData(API);
 }
 
