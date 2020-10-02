@@ -7,6 +7,6 @@ Usuario Platzi: @LoreBratt
 
 ## Reto:
   - [ ] Primer problema
-  - [X] Segundo problema
-  - [ ] Tercer problema
+  - [ ] Segundo problema
+  - [X] Tercer problema
   - [ ] Cuarto Problema (Opcional)
