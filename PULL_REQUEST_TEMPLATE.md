@@ -6,7 +6,7 @@ Nombre: Lorena Mosquera González
 Usuario Platzi: @LoreBratt
 
 ## Reto:
-  - [X] Primer problema
-  - [ ] Segundo problema
+  - [ ] Primer problema
+  - [X] Segundo problema
   - [ ] Tercer problema
   - [ ] Cuarto Problema (Opcional)
