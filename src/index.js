@@ -28,7 +28,7 @@ const saveNextURLRequest = function(nextURLAPI){
       window.localStorage.setItem('next_fetch', nextURLAPI);
 }
 
-const loasData = () => {
+const loadData = () => {
   getData(API);
 }
 
