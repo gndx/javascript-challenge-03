@@ -2,11 +2,11 @@
 
 Solución al reto 03 de Escuela de JavaScript
 
-Nombre:
-Usuario Platzi:
+Nombre: Lorena Mosquera González
+Usuario Platzi: @LoreBratt
 
 ## Reto:
   - [ ] Primer problema
   - [ ] Segundo problema
-  - [ ] Tercer problema
+  - [X] Tercer problema
   - [ ] Cuarto Problema (Opcional)

@@ -6,6 +6,7 @@ const getData = api => {
   fetch(api)
     .then(response => response.json())
     .then(response => {
+        saveNextURLRequest(response.info.next);
       const characters = response.results;
       let output = characters.map(character => {
         return `
@@ -23,8 +24,19 @@ const getData = api => {
     .catch(error => console.log(error));
 }
 
-const loadData = () => {
-  getData(API);
+const saveNextURLRequest = function(nextURLAPI){
+      window.localStorage.setItem('next_fetch', nextURLAPI);
+}
+
+const loadData = async() => {
+  let newURL = API;
+  window.localStorage.getItem('next_fetch')=== null ?
+  (
+      await getData(API)
+  ):(
+      newURL = window.localStorage.getItem('next_fetch'),
+        getData(newURL)
+  );
 }
 
 const intersectionObserver = new IntersectionObserver(entries => {
@@ -36,3 +48,4 @@ const intersectionObserver = new IntersectionObserver(entries => {
 });
 
 intersectionObserver.observe($observe);
+window.localStorage.removeITem('next_fetch');
