@@ -1,38 +1,72 @@
-const $app = document.getElementById('app');
-const $observe = document.getElementById('observe');
-const API = 'https://rickandmortyapi.com/api/character/';
+const $app = document.getElementById("app");
+const $observe = document.getElementById("observe");
+const API = "https://rickandmortyapi.com/api/character/";
 
-const getData = api => {
+const getData = (api) => {
   fetch(api)
-    .then(response => response.json())
-    .then(response => {
+    .then((response) => response.json())
+    .then((response) => {
       const characters = response.results;
-      let output = characters.map(character => {
-        return `
+      const nextURL = response.info.next;
+      urlSavedLocalStorage(nextURL);
+      let output = characters
+        .map((character) => {
+          return `
       <article class="Card">
         <img src="${character.image}" />
         <h2>${character.name}<span>${character.species}</span></h2>
       </article>
-    `
-      }).join('');
-      let newItem = document.createElement('section');
-      newItem.classList.add('Items');
+    `;
+        })
+        .join("");
+      let newItem = document.createElement("section");
+      newItem.classList.add("Items");
       newItem.innerHTML = output;
       $app.appendChild(newItem);
     })
-    .catch(error => console.log(error));
-}
+    .catch((error) => console.log(error));
+};
 
-const loadData = () => {
-  getData(API);
-}
-
-const intersectionObserver = new IntersectionObserver(entries => {
-  if (entries[0].isIntersecting) {
-    loadData();
+const loadData = async (url) => {
+  if (url === "null") {
+    alert("Ya no hya personajes...");
+    intersectionObserver.unobserve($observe);
+  } else {
+    await getData(url);
   }
-}, {
-  rootMargin: '0px 0px 100% 0px',
-});
+};
+
+const intersectionObserver = new IntersectionObserver(
+  (entries) => {
+    if (entries[0].isIntersecting) {
+      loadData(getDataLocalStorage());
+    }
+  },
+  {
+    rootMargin: "0px 0px 100% 0px",
+  }
+);
 
 intersectionObserver.observe($observe);
+
+const urlSavedLocalStorage = (url) => {
+  localStorage.setItem("next_fetch", url);
+};
+
+function getDataLocalStorage() {
+  const urlSave = localStorage.getItem("next_fetch");
+
+  if (urlSave) {
+    return urlSave;
+  } else {
+    return API;
+  }
+}
+
+const removeLocalStorage = () => {
+  if (localStorage.getItem("next_fetch")) {
+    localStorage.removeItem("next_fetch");
+  }
+};
+
+window.addEventListener("DOMContentLoaded", removeLocalStorage);
