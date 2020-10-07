@@ -2,11 +2,11 @@
 
 Solución al reto 03 de Escuela de JavaScript
 
-Nombre:
-Usuario Platzi:
+Nombre: John Jairo Riaño Martinez
+Usuario Platzi: jhon091199@gmail.com
 
 ## Reto:
-  - [ ] Primer problema
-  - [ ] Segundo problema
-  - [ ] Tercer problema
-  - [ ] Cuarto Problema (Opcional)
+  - [x] Primer problema
+  - [x] Segundo problema
+  - [x] Tercer problema
+  - [x] Cuarto Problema (Opcional)
