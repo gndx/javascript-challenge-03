@@ -2,11 +2,11 @@
 
 Solución al reto 03 de Escuela de JavaScript
 
-Nombre:
-Usuario Platzi:
+Nombre: Mariana Gómez Betancourt
+Usuario Platzi:MarianaGb
 
 ## Reto:
-  - [ ] Primer problema
-  - [ ] Segundo problema
-  - [ ] Tercer problema
-  - [ ] Cuarto Problema (Opcional)
+  - [ x] Primer problema
+  - [x ] Segundo problema
+  - [x ] Tercer problema
+  - [ x] Cuarto Problema (Opcional)
