@@ -1,7 +1,7 @@
 const $app = document.getElementById('app');
 const $observe = document.getElementById('observe');
 const API = 'https://rickandmortyapi.com/api/character/';
-var CountPage = 33;
+var CountPage = 1;
 var StopData = false;
 var deleteItem;
 var nextFetch = false;
@@ -23,6 +23,7 @@ const getData = api => {
         console.log('Entra al Sino');
         localStorage.removeItem('next_fetch');
         StopData = true;
+        CountPage = 1;
       }
       localStorage.setItem('next_fetch', response.info.next);
       let output = characters.map(character => {
