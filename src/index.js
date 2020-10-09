@@ -3,7 +3,6 @@ const $observe = document.getElementById('observe');
 const API = 'https://rickandmortyapi.com/api/character/';
 var CountPage = 1;
 var StopData = false;
-var deleteItem;
 var nextFetch = false;
 
 
@@ -13,17 +12,12 @@ const getData = api => {
     .then(response => {
       const characters = response.results;
       const cantPages = response.info.pages;
-      console.log('Variable NextFetch '+nextFetch);
       if(nextFetch !== null && CountPage < cantPages){
         nextFetch = localStorage.getItem('next_fetch');
         CountPage++;
-        console.log('Sigue mostrando datos');
-        console.log('Siguiente: '+response.info.next);
       } else {
-        console.log('Entra al Sino');
         localStorage.removeItem('next_fetch');
         StopData = true;
-        CountPage = 1;
       }
       localStorage.setItem('next_fetch', response.info.next);
       let output = characters.map(character => {
@@ -39,18 +33,17 @@ const getData = api => {
       newItem.innerHTML = output;
       $app.appendChild(newItem);
     })
-    .catch(error => console.log('Este es '+error));
+    .catch(error => console.log(error));
 }
 
-const loadData = () => {
-  getData(API+'?page='+CountPage);
+const loadData = async () => {
+  const data = await getData(API+'?page='+CountPage);
+  return data;
 }
-
 
 const intersectionObserver = new IntersectionObserver(entries => {
   if (entries[0].isIntersecting) {
-    if(StopData == true) {
-      console.log('No se pueden mostrar datos mas porque no hay');
+    if(StopData === true) {
       let newItem = document.createElement('div');
       newItem.classList.add('NoDatos');
       newItem.innerHTML = '<h3>No hay más datos para mostrar</h3>';
