@@ -7,6 +7,6 @@ Usuario Platzi: adpmb1995@hotmail.com
 
 ## Reto:
   - [x] Primer problema
-  - [ ] Segundo problema
+  - [x] Segundo problema
   - [ ] Tercer problema
   - [ ] Cuarto Problema (Opcional)
