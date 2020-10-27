@@ -38,9 +38,12 @@ const loadData = async () => {
       localStorage.removeItem(`NEXT_FETCH`);
       await getData(API);
       llamadasALaAPI++;
-    } else {
+    } else if (localStorage.NEXT_FETCH!==""){
       await getData(`${localStorage.NEXT_FETCH}`);
       llamadasALaAPI++;
+    } else {
+      alert('Ya no hay personajes...');
+      intersectionObserver.unobserve($observe)
     }
   } catch{
 }

@@ -9,4 +9,4 @@ Usuario Platzi: adpmb1995@hotmail.com
   - [x] Primer problema
   - [x] Segundo problema
   - [x] Tercer problema
-  - [ ] Cuarto Problema (Opcional)
+  - [x] Cuarto Problema (Opcional)
