@@ -7,6 +7,11 @@ const getData = api => {
     .then(response => response.json())
     .then(response => {
       const characters = response.results;
+      const NEXT_FETCH = response.info.next;
+      localStorage.setItem("NEXT_FETCH", NEXT_FETCH);
+      if (localStorage.NEXT_FETCH){
+        console.log(`NEXT_FETCH creada exitosamente en localSorage con el valor: ${localStorage.NEXT_FETCH}`);
+      }
       let output = characters.map(character => {
         return `
       <article class="Card">
