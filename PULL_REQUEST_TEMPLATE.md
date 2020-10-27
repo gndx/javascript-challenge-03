@@ -2,11 +2,11 @@
 
 Solución al reto 03 de Escuela de JavaScript
 
-Nombre:
-Usuario Platzi:
+Nombre: Adriana del Pilar Martinez Bautista
+Usuario Platzi: adpmb1995@hotmail.com
 
 ## Reto:
-  - [ ] Primer problema
-  - [ ] Segundo problema
-  - [ ] Tercer problema
-  - [ ] Cuarto Problema (Opcional)
+  - [x] Primer problema
+  - [x] Segundo problema
+  - [x] Tercer problema
+  - [x] Cuarto Problema (Opcional)
